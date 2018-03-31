@@ -28,6 +28,7 @@
     text-align: center;
     align-items:center;
     transition:
+    /* the cubic-bezier allws the panel to open a little bigger thank it should and then fall back into place for a cool transition effect; */
       font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
       flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
       background 0.2s;
@@ -67,7 +68,7 @@
     justify-content: center;
     align-items: center;
   }
-  /* allows the top row of text to be place off screen in an upward direction. the idea is that when the percentage is toggled, it will animate up and down. "open-active" is what allows this: */
+  /* allows the top row of text to be place off screen in an upward direction. the idea is that when the percentage is toggled, it will transition up and down. "open-active" is what allows this: */
   .panel > *:first-child {
     transform: translateY(-100%);
   }
@@ -76,7 +77,7 @@
     transform: translateY(0);
    }
 
-  /* allows the bottom row of text to be place off screen in an downward direction. the idea is that when the percentage is toggled, it will animate up and down."open-active" is what allows this: */
+  /* allows the bottom row of text to be place off screen in an downward direction. the idea is that when the percentage is toggled, it will transiton up and down."open-active" is what allows this: */
   .panel > *:last-child {
     transform: translateY(100%);
    }
@@ -96,6 +97,7 @@
   }
 
   .panel.open {
+    /* flex 5 is going to take 5 times the amount of space when panel has class of open. resulting in the look of the picture getting larger when it is clicked and the pther panels are at the size of flex 1.*/
     flex: 5;
     font-size:25px;
   }
