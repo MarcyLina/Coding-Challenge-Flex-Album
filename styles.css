@@ -1,0 +1,101 @@
+/* friendly reminder to myself... * = all elements */
+  html {
+    box-sizing: border-box;
+    background:#ffc600;
+    font-family: 'Shrikhand', cursive;
+    font-size: 15px;
+    font-weight: 200;
+
+  }
+  body {
+    margin: 0;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .panels {
+    min-height:100vh;
+    overflow: hidden;
+    /* allows images to be displayed side by side : */
+    display: flex;
+  }
+
+  .panel {
+    background:#6B0F9C;
+    box-shadow:inset 0 0 0 8px rgba(255,255,255,0.1);
+    color:white;
+    text-align: center;
+    align-items:center;
+    transition:
+      font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+      flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+      background 0.2s;
+    font-size: 15px;
+    background-size:cover;
+    background-position:center;
+    /* allows for images to evenly distribute across the page: */
+    flex: 1;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .panel1 {
+    background-image:url(static/pizza1.jpeg);
+  }
+  .panel2 {
+     background-image:url(static/pizza2.jpeg);
+   }
+  .panel3 { background-image:url(static/pizza3.jpeg);
+   }
+  .panel4 {
+    background-image:url(static/pizza4.jpeg);
+   }
+  .panel5 {
+    background-image:url(static/pizza5.jpeg);
+  }
+
+  /* Flex Items */
+  .panel > * {
+    margin:0;
+    width: 100%;
+    transition:transform 0.5s;
+    flex: 1 0 auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* allows the top row of text to be place off screen in an upward direction. the idea is that when the percentage is toggled, it will animate up and down. "open-active" is what allows this: */
+  .panel > *:first-child {
+    transform: translateY(-100%);
+  }
+
+  .panel.open-active > *:first-child {
+    transform: translateY(0);
+   }
+
+  /* allows the bottom row of text to be place off screen in an downward direction. the idea is that when the percentage is toggled, it will animate up and down."open-active" is what allows this: */
+  .panel > *:last-child {
+    transform: translateY(100%);
+   }
+
+  .panel.open-active > *:last-child {
+    transform: translateY(0);
+   }
+
+  .panel p {
+    text-transform: uppercase;
+    font-family: 'Shrikhand', cursive;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+    font-size: 2em;
+  }
+  .panel p:nth-child(2) {
+    font-size: 4em;
+  }
+
+  .panel.open {
+    flex: 5;
+    font-size:25px;
+  }
